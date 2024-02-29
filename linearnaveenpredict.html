@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Tip Bill Prediction.com</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+        h2 {
+            color: #007bff;
+        }
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            color: #333;
+            font-weight: bold;
+        }
+        input[type="number"],
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #result h2 {
+            color: #333;
+        }
+        #result p {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Total Tip Bill Prediction </h1>
+    
+    <h2>devoloped by Naveen S yelloti</h2>
+    <form action="/predict_tip" method="post">
+        <label for="total_bill">Total Bill Amount:</label><br>
+        <input type="number" id="total_bill" name="total_bill" required><br>
+
+        <label for="sex">Sex:</label><br>
+        <select id="sex" name="sex" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select><br>
+
+        <label for="smoker">Smoker:</label><br>
+        <select id="smoker" name="smoker" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br>
+
+        <label for="day">Day:</label><br>
+        <input type="text" id="day" name="day" required><br>
+
+        <label for="time">Time:</label><br>
+        <select id="time" name="time" required>
+            <option value="Lunch">Lunch</option>
+            <option value="Dinner">Dinner</option>
+        </select><br>
+
+        <label for="size">Party Size:</label><br>
+        <input type="number" id="size" name="size" required><br>
+
+        <input type="submit" value="Predict Tip">
+    </form>
+
+    <div id="result">
+        <h2>Predicted Tip:</h2>
+        <p>{{ prediction }}</p>
+    </div>
+</body>
+</html>

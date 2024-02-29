@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+</head>
+<body>
+    <h1>House Price Prediction</h1>
+    <form action="/predict_price" method="post">
+        <label for="neighborhood">Neighborhood:</label><br>
+        <input type="text" id="neighborhood" name="neighborhood" required><br>
+        
+        <label for="lot_frontage">Lot Frontage:</label><br>
+        <input type="number" id="lot_frontage" name="lot_frontage" required><br>
+        
+        <label for="lot_area">Lot Area:</label><br>
+        <input type="number" id="lot_area" name="lot_area" required><br>
+        
+        <label for="bedrooms">Number of Bedrooms:</label><br>
+        <input type="number" id="bedrooms" name="bedrooms" required><br>
+        
+        <!-- Include other input fields as per your dataset -->
+        
+        <input type="submit" value="Predict Price">
+    </form>
+    
+    {% if prediction %}
+    <div>
+        <h2>Predicted Price:</h2>
+        <p>{{ prediction }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
